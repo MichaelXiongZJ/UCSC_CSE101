@@ -1,0 +1,50 @@
+
+Linked List
+- Looks like:
+    Class Node{
+    int data;
+            Node *next;
+    }
+    Class LinkedList{
+        Node *head;
+    }
+- Benefits:
+    1. Allocates "exactly" the right amount of memory
+    2. Do not need to know this during setup
+    3. Does not have to use continuous memory
+- Insert:
+    1. Create a node 
+    2. Link new node to the existed list (Usually at the head)
+    Ex:
+        insert(int val){
+            Node *latest = new Node(val);
+            latest -> next = head;
+            head = leatest;
+        }
+- Find:
+    Return a pointer to node with data = val, return NUll if value is not present
+    Recursive Implementation:
+        1. check if head->data is val
+        2. if not, recursively find it staring from head->next
+    Ex:
+        Node* Find(int val){
+            return find(val, find);
+        }
+        Node* Find(int val, Node* start){
+            if(start != NULL){
+                return NULL;
+            }
+            if(start->data = val){
+                return start;
+            }
+            retun find(val, start->next)
+        }
+- Print:
+    Ex:
+        Node* curr = head;
+        while(curr != NUll){
+            print(curr->data);
+            curr = curr->next;
+        }
+- Delete:
+    

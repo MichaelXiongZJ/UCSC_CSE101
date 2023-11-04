@@ -1,0 +1,13 @@
+sixdegrees.cpp is the only source code file used this time,
+since the amount of code is lesser than usual.
+
+The graph is implemented by two hashmaps, one for actors, one of movie,
+and they both contians all the actors/movies each are associated with.
+
+BST is implemented via a queue, and a hashmap to traceback the path if one is found.
+
+The overall structure design is decided after discussion with multiple classmates,
+as we all shared our ideas of different approach.
+
+Had many discussion with ZhongXing to optimize the code,
+we both shared many ideas, and helped each other.

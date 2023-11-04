@@ -1,0 +1,42 @@
+- Binary Heap is an array of objects
+- The array is interpreted as a tree
+- The root is at index 0
+- Parent of node at index i is at index i/2
+- Children of node at index i are at indices 2i and 2i+1
+- Keys at parents always >= Keys at children
+- Sink/Heapify(int index) - move node down to its proper place
+    - Keep swapping with larger child
+    - Assume the childrens are correct
+    - Sudo Code:
+        - If A[index] is a leaf, done   //base case
+        - If A[index].key >= max(A[2*index].key, A[2*index+1].key), done //already a heap
+        - Find the child of A[index] with a larger key (call this child j)
+        - Swap A[index] and A[j]
+        - Heapify(j) //recursive call
+- Swim(int index) - move node up to its proper place
+    - Keep swapping with parent
+    - Assume the parent is correct
+    - Sudo Code:
+        - If index == 1, done   //base case
+        - If A[index].key <= A[index/2].key, done //already a heap
+        - Swap A[index] and A[index/2]
+        - Swim(index/2) //recursive call
+- Extract Max sudo code:
+    - Swap A[1] and A[size]
+    - Decrement size (deletion)
+    - Heapify(1)
+    - Return A[size+1]
+- Insert sudo code:
+    - Increment size (addition)
+    - A[size] = key
+    - Swim(size)
+- HeapSort(A)   //A is an array  of n objects
+    - Converse A into binary heap (insert all elements of A into a heap)
+        - first way:
+            -for i = 1 to n: O(nlogn)
+                - Swim(i)
+        - second way:
+            - for i = n to 1:  O(n)
+                - Sink(i)
+    - Run ExtractMax n times    //move max to end of array
+    - Return A

@@ -1,0 +1,35 @@
+Hash Table Properties:
+- All operation in O(1) time
+- A data structure that stores key-value pairs
+- Keys are unique/distinct
+- Randomized data structure
+
+Drawbacks:
+- Complicated memory allocation
+- Deletion is Complicated
+- Do NOT support min/max/range queries
+- Keys are not storded in any order
+
+Hash Table Operations:
+- Insertion
+- Deletion
+- Search
+- Update
+
+Hash Table Implementation:
+- Initilize the size of the hash table to a size close to the number of elements to be storded
+- Use a hash function to map the key to a location in the hash table
+- Chaining
+    - Hash Table is an array of linked lists of key-value pairs
+    - The ith linked list stores ALL key-value pairs where hash(key) = i
+    - Collision: Multiple keys map to the same hash value, so they are stored in the same linked list
+    - Rquires O(n+m) memory
+- Open Addressing
+    - Hash Table is an array of size m of key-value pairs
+    - The ith element stores the key-value pair where hash(key) = i
+    - Collision: Multiple keys map to the same hash value, try other locations in the hash table
+        - Since m > n, guaranteed to find an empty location
+        - Linear Probing: Try the next location in the hash table
+        - Quadratic Probing: Try the next location in the hash table, but with a quadratic function
+        - Double Hashing: Try the next location in the hash table, but with a second hash function
+        

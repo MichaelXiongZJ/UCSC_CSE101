@@ -1,0 +1,25 @@
+Self-Balancing BST:
+    - Run time of BST is O(max distance)
+    - Useful Lemma: For any BST with n nodes, there exist a node with depth(measure with nodes) at least log2(n)
+    - A Self-Balancing BST always maintains a max depth of O(log(n)), so all operations are O(log(n))
+    - Famous Self-Balancing Trees:
+        - AVL Tree (Adelson-Velskii and Landis, 1962)
+        - 2-3 Tree (Not a real BST, as each node can have 2 or 3 children)
+        - Red-Black Tree (C++ standard library map)
+        - B-tree (Database)
+
+Rotation
+    - Change the structure of the tree but not destory the BST invariant.
+    - 4 types of rotation:
+        - Left Rotation
+        - Right Rotation
+        - Left-Right Rotation
+        - Right-Left Rotation
+
+Insertion
+    - Insertion is the same as BST insertion
+    - After insertion, we need to check if the tree is still balanced
+    - If not, we need to do rotation to make the tree balanced again
+    - Rotation is the same as BST rotation
+    - After rotation, we need to check if the tree is still balanced
+    - If not, we need to do rotation again

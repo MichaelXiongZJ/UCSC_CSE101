@@ -1,0 +1,49 @@
+Properties of Graphs
+- Graph is a mathematical object representing "entities" (vertices/nodes) and relationships (edges/links) between them.
+- G = (V, E)
+- V = set of vertices
+- E = set of edges (pairs of vertices)
+- Edges can be order/unordered (directed/undirected)
+    - Undirected graph: (u, v) = (v, u)
+    - Directed graph: (u, v) ≠ (v, u)
+- Edges can be weighted
+
+Two simple ways to represent graphs:
+- Adjacency matrix
+    - A[i][j] = weight, if there is an edge between i and j
+    - A[i][j] = 0, otherwise
+    - Uses more space than adjacency list
+    - Faster to check if there is an edge between two vertices
+    - Runtime analysis:
+        - Insertion: O(1)
+        - Deletion: O(1)
+        - FindEdge: O(1)
+        - GetAllNeighbors: O(n)
+- Adjacency list
+    - A[i] = list of vertices adjacent to i
+    - Weight can be stored in the list
+    - Uses less space than adjacency matrix
+    - Faster to iterate over all adjacent vertices
+    - Can be implemented using a hash table???
+    - Runtime analysis:
+        - Insertion: O(1)
+        - Deletion: O(1)
+        - FindEdge: O(d(V)) where d(V) is the degree of vertex V
+        - GetAllNeighbors: O(d(V)) where d(V) is the degree of vertex V
+
+Generally, adjacency list is used for sparse graphs and adjacency matrix is used for dense graphs.
+- if V ~ E^2, Dense Graph, then adjacency matrix is better
+- if V < E^2, Sparse Graph, then adjacency list is better
+
+SSSP (Single Source Shortest Path)
+- Given a graph G = (V, E) and a source vertex s, find the shortest path from s to every other vertex in the graph
+- Dijkstra's algorithm
+    - Keep two lists of vertices: Visited and Unvisited
+    - Initially, all vertices are in the Unvisited list
+    - Pick the vertex with the smallest distance from the source vertex and move it to the Visited list
+- Bellman-Ford algorithm
+    - Keep two lists of vertices: Visited and Unvisited
+    - Initially, all vertices are in the Unvisited list
+    - Pick the vertex with the smallest distance from the source vertex and move it to the Visited list
+    - Repeat until all vertices are in the Visited list
+    - If there is a negative cycle, the algorithm will not terminate

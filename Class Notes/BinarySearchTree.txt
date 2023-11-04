@@ -1,0 +1,92 @@
+class Node{
+    int? data;
+    int key;
+    Node* left;
+    Node* right;
+    Node* parent;
+}
+
+class BST{
+    Node* root;
+}
+
+Ancestor:
+    - w is an ancestor of x if:
+        - Base case: w = x
+        - Induction/Recursive case: w is a parent of an ancestor of x
+    - The ancestor of x form a path form x to the root
+
+Descendant:
+    - w is a descendant of x if:
+        - Base case: w = x
+        - Induction/Recursive case: w is a child of a descendant of x
+    - The descendant of x form a path form x to the leaf
+
+BST property:
+    - If y is a descendant of x as x->left, then y->key <= x->key
+    - If y is a descendant of x as x->right, then y->key > x->key
+
+Tree Traversals:
+    - Inorder: left, root, right
+        1. If start is Null, return
+        2. Inorder(start->left)
+        3. print(start->key)
+        4. Inorder(start->right)
+    - Preorder: root, left, right
+        1. If start is Null, return
+        2. print(start->key)
+        3. Preorder(start->left)
+        4. Preorder(start->right)
+    - Postorder: left, right, root
+        1. If start is Null, return
+        2. Postorder(start->left)
+        3. Postorder(start->right)
+        4. print(start->key)
+
+Tree can be reconstructed from inorder and preorder/postorder traversals:
+- Example:
+    Node* reconstruct(int[] postorder){
+        if(len == 0) return null;
+        int rootkey = postorder[len-1]
+        create node with rootkey called inter_root
+        leftpostorder = left of root
+        rightpostorder = right of root
+        Node* leftChild = reconstruct(leftpostorder)
+        Node* rightChild = reconstruct(rightpostorder)
+        inter_root->left = leftChild
+        inter_root->right = rightChild
+    }
+
+Node* find(Node* start, int val){
+    if(start == null){
+        return null;
+    }
+    if(start->key == val){
+        return start;
+    }
+    if(val < start->key){
+        return find(start->left, val);
+    }
+    else{
+        return find(start->right, val);
+    }
+}
+
+insert(Node* start, Node *to_insert){
+    if(start == null){
+        return to_insert;
+    }
+    if(to_insert->key <= start->key){
+        start->left = insert(start->left, to_insert);
+        start->left->parent = start;
+    }
+    else{
+        start->right = insert(start->right, to_insert);
+        start->right->parent = start;
+    }
+    return start;
+}
+
+deleteNode(Node* to_delete){
+    
+}

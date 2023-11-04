@@ -1,0 +1,4 @@
+Stack and Recursion
+    - Any code that uses recurison can be convert into "non-recursive" code using a Stack
+    - Recursion is in fact using stacks in the operating system
+    - Recursion is a very powerful tool, but it can be very slow
